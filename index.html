@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  background: #060AB2;
+}
+.thegame {
+  width: 640px;
+  height: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+}
+.thecard{
+ width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+}
+
+.thecard:active{
+transform: scale(0.97);
+transition: transform .2s;
+}
+.thecard.flip{
+transform:rotateY(180deg);
+}
+.thefront,
+.theback{
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  background: #1C7CCC;
+  backface-visibility: hidden;
+}
+.thefront {
+  transform: rotateY(180deg);
+}
+</style>
+</head>
+<body>
+
+<script>
+const cards = document.querySelectorAll('.thecard');
+
+function flipCard(){
+console.log('i was clicked!');
+console.log(this);
+}
+cards.forEach(card => card.addEventListener('click', flipCard));
+</script>
+
+<section class="thegame">
+<div class="thecard">
+<img class="thefront" src="pirma.jpg"></img>
+<img class="theback" src="penkta.jpg"></img>
+</div>
+<div class="thecard">
+<img class="thefront" src="pirma.jpg"></img>
+<img class="theback" src="penkta.jpg"></img>
+</div>
+<div class="thecard">
+<img class="thefront" src="pirma.jpg"></img>
+<img class="theback" src="penkta.jpg"></img>
+</div>
+<div class="thecard">
+<img class="thefront" src="pirma.jpg"></img>
+<img class="theback" src="penkta.jpg"></img>
+</div>
+<div class="thecard">
+<img class="thefront" src="pirma.jpg"></img>
+<img class="theback" src="penkta.jpg"></img>
+</div>
+<div class="thecard">
+<img class="thefront" src="pirma.jpg"></img>
+<img class="theback" src="penkta.jpg"></img>
+</div>
+<div class="thecard">
+<img class="thefront" src="pirma.jpg"></img>
+<img class="theback" src="penkta.jpg"></img>
+</div>
+<div class="thecard">
+<img class="thefront" src="pirma.jpg"></img>
+<img class="theback" src="penkta.jpg"></img>
+</div>
+<div class="thecard">
+<img class="thefront" src="pirma.jpg"></img>
+<img class="theback" src="penkta.jpg"></img>
+</div>
+<div class="thecard">
+<img class="thefront" src="pirma.jpg"></img>
+<img class="theback" src="penkta.jpg"></img>
+</div>
+<div class="thecard">
+<img class="thefront" src="pirma.jpg"></img>
+<img class="theback" src="penkta.jpg"></img>
+</div>
+<div class="thecard">
+<img class="thefront" src="pirma.jpg"></img>
+<img class="theback" src="penkta.jpg"></img>
+</div>
+</section>
+
+
+</body>
+</html>

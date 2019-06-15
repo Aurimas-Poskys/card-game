@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <style>
@@ -12,8 +12,9 @@
 body {
   height: 100vh;
   display: flex;
-  background: #060AB2;
+  background: #6699ff;
 }
+
 .thegame {
   width: 640px;
   height: 640px;
@@ -22,8 +23,9 @@ body {
   flex-wrap: wrap;
   perspective: 1000px;
 }
-.thecard{
- width: calc(25% - 10px);
+
+.thecard {
+  width: calc(25% - 10px);
   height: calc(33.333% - 10px);
   margin: 5px;
   position: relative;
@@ -33,23 +35,24 @@ body {
   box-shadow: 1px 1px 1px rgba(0,0,0,.3);
 }
 
-.thecard:active{
-transform: scale(0.97);
-transition: transform .2s;
+.thecard:active {
+  transform: scale(0.97);
+  transition: transform .2s;
 }
-.thecard.flip{
-transform:rotateY(180deg);
+
+.thecard.flip {
+  transform: rotateY(180deg);
 }
+
 .thefront,
-.theback{
+.theback {
   width: 100%;
   height: 100%;
-  padding: 20px;
   position: absolute;
   border-radius: 5px;
-  background: #1C7CCC;
   backface-visibility: hidden;
 }
+
 .thefront {
   transform: rotateY(180deg);
 }
@@ -57,66 +60,66 @@ transform:rotateY(180deg);
 </head>
 <body>
 
-<script>
-const cards = document.querySelectorAll('.thecard');
-
-function flipCard(){
-this.classList.add('flip');
-}
-cards.forEach(card => card.addEventListener('click', flipCard));
-</script>
 
 <section class="thegame">
 <div class="thecard">
-<img class="thefront" src="pirma.jpg"></img>
-<img class="theback" src="penkta.jpg"></img>
+<img class="thefront" src="pirma.jpg" alt="sirdis"></img>
+<img class="theback" src="devinta.jpg" alt="korta"></img>
 </div>
 <div class="thecard">
-<img class="thefront" src="pirma.jpg"></img>
-<img class="theback" src="penkta.jpg"></img>
+<img class="thefront" src="antra.jpg" alt="bugnas"></img>
+<img class="theback" src="devinta.jpg" alt="korta"></img>
 </div>
 <div class="thecard">
-<img class="thefront" src="pirma.jpg"></img>
-<img class="theback" src="penkta.jpg"></img>
+<img class="thefront" src="pirma.jpg" alt="sirdis"></img>
+<img class="theback" src="devinta.jpg" alt="korta"></img>
 </div>
 <div class="thecard">
-<img class="thefront" src="pirma.jpg"></img>
-<img class="theback" src="penkta.jpg"></img>
+<img class="thefront" src="trecia.jpg" alt="kryzius"></img>
+<img class="theback" src="devinta.jpg" alt="korta"></img>
 </div>
 <div class="thecard">
-<img class="thefront" src="pirma.jpg"></img>
-<img class="theback" src="penkta.jpg"></img>
+<img class="thefront" src="desimta.jpg" alt="lapuseptinke"></img>
+<img class="theback" src="devinta.jpg" alt="korta"></img>
 </div>
 <div class="thecard">
-<img class="thefront" src="pirma.jpg"></img>
-<img class="theback" src="penkta.jpg"></img>
+<img class="thefront" src="trecia.jpg" alt="kryzius"></img>
+<img class="theback" src="devinta.jpg" alt="korta"></img>
 </div>
 <div class="thecard">
-<img class="thefront" src="pirma.jpg"></img>
-<img class="theback" src="penkta.jpg"></img>
+<img class="thefront" src="vienuolikta.jpg" alt="sidziuseptinke"></img>
+<img class="theback" src="devinta.jpg" alt="korta"></img>
 </div>
 <div class="thecard">
-<img class="thefront" src="pirma.jpg"></img>
-<img class="theback" src="penkta.jpg"></img>
+<img class="thefront" src="desimta.jpg" alt="lapuseptinke"></img>
+<img class="theback" src="devinta.jpg" alt="korta"></img>
 </div>
 <div class="thecard">
-<img class="thefront" src="pirma.jpg"></img>
-<img class="theback" src="penkta.jpg"></img>
+<img class="thefront" src="dvylikta.jpg" alt="bugnuseptinke"></img>
+<img class="theback" src="devinta.jpg" alt="korta"></img>
 </div>
 <div class="thecard">
-<img class="thefront" src="pirma.jpg"></img>
-<img class="theback" src="penkta.jpg"></img>
+<img class="thefront" src="dvylikta.jpg" alt="bugnuseptinke"></img>
+<img class="theback" src="devinta.jpg" alt="korta"></img>
 </div>
 <div class="thecard">
-<img class="thefront" src="pirma.jpg"></img>
-<img class="theback" src="penkta.jpg"></img>
+<img class="thefront" src="antra.jpg" alt="bugnas"></img>
+<img class="theback" src="devinta.jpg" alt="korta"></img>
 </div>
 <div class="thecard">
-<img class="thefront" src="pirma.jpg"></img>
-<img class="theback" src="penkta.jpg"></img>
+<img class="thefront" src="vienuolikta.jpg" alt="sirdziuseptinke"></img>
+<img class="theback" src="devinta.jpg" alt="korta"></img>
 </div>
 </section>
 
 
+<script>
+const cards = document.querySelectorAll('.thecard');
+
+function flipCard(){
+this.classList.toggle('flip');
+}
+cards.forEach(card => card.addEventListener('click',flipCard));
+</script>
 </body>
 </html>

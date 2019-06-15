@@ -61,8 +61,7 @@ transform:rotateY(180deg);
 const cards = document.querySelectorAll('.thecard');
 
 function flipCard(){
-console.log('i was clicked!');
-console.log(this);
+this.classList.add('flip');
 }
 cards.forEach(card => card.addEventListener('click', flipCard));
 </script>

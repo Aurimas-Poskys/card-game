@@ -49,12 +49,19 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
+  
   border-radius: 5px;
   backface-visibility: hidden;
 }
-
+.theback{
+ background-color:	#ff3333;
+}
 .thefront {
-  transform: rotateY(180deg);
+  background-color:#ffcccc;
+  font: 150px arial, sans-serif;
+  color:#333300;
+  padding:25px;
+ transform: rotateY(180deg);
 }
 </style>
 </head>
@@ -62,62 +69,87 @@ body {
 
 
 <section class="thegame">
-<div class="thecard">
-<img class="thefront" src="pirma.jpg" alt="sirdis"></img>
-<img class="theback" src="devinta.jpg" alt="korta"></img>
+<div class="thecard" data-framework="C">
+<div class="thefront" alt="korta">C</div>
+<div class="theback" alt="korta"></div>
 </div>
-<div class="thecard">
-<img class="thefront" src="antra.jpg" alt="bugnas"></img>
-<img class="theback" src="devinta.jpg" alt="korta"></img>
+<div class="thecard" data-framework="A">
+<div class="thefront" alt="korta">A</div>
+<div class="theback" alt="korta"></div>
 </div>
-<div class="thecard">
-<img class="thefront" src="pirma.jpg" alt="sirdis"></img>
-<img class="theback" src="devinta.jpg" alt="korta"></img>
+<div class="thecard" data-framework="E">
+<div class="thefront" alt="korta">E</div>
+<div class="theback" alt="korta"></div>
 </div>
-<div class="thecard">
-<img class="thefront" src="trecia.jpg" alt="kryzius"></img>
-<img class="theback" src="devinta.jpg" alt="korta"></img>
+<div class="thecard" data-framework="F">
+<div class="thefront" alt="korta">F</div>
+<div class="theback" alt="korta"></div>
 </div>
-<div class="thecard">
-<img class="thefront" src="desimta.jpg" alt="lapuseptinke"></img>
-<img class="theback" src="devinta.jpg" alt="korta"></img>
+<div class="thecard" data-framework="A">
+<div class="thefront" alt="korta">A</div>
+<div class="theback" alt="korta"></div>
 </div>
-<div class="thecard">
-<img class="thefront" src="trecia.jpg" alt="kryzius"></img>
-<img class="theback" src="devinta.jpg" alt="korta"></img>
+<div class="thecard" data-framework="B">
+<div class="thefront" alt="korta">B</div>
+<div class="theback" alt="korta"></div>
 </div>
-<div class="thecard">
-<img class="thefront" src="vienuolikta.jpg" alt="sidziuseptinke"></img>
-<img class="theback" src="devinta.jpg" alt="korta"></img>
+<div class="thecard" data-framework="E">
+<div class="thefront" alt="korta">E</div>
+<div class="theback" alt="korta"></div>
 </div>
-<div class="thecard">
-<img class="thefront" src="desimta.jpg" alt="lapuseptinke"></img>
-<img class="theback" src="devinta.jpg" alt="korta"></img>
+<div class="thecard" data-framework="C">
+<div class="thefront" alt="korta">C</div>
+<div class="theback" alt="korta"></div>
 </div>
-<div class="thecard">
-<img class="thefront" src="dvylikta.jpg" alt="bugnuseptinke"></img>
-<img class="theback" src="devinta.jpg" alt="korta"></img>
+<div class="thecard" data-framework="D">
+<div class="thefront" alt="korta">D</div>
+<div class="theback" alt="korta"></div>
 </div>
-<div class="thecard">
-<img class="thefront" src="dvylikta.jpg" alt="bugnuseptinke"></img>
-<img class="theback" src="devinta.jpg" alt="korta"></img>
+<div class="thecard" data-framework="B">
+<div class="thefront" alt="korta">B</div>
+<div class="theback" alt="korta"></div>
 </div>
-<div class="thecard">
-<img class="thefront" src="antra.jpg" alt="bugnas"></img>
-<img class="theback" src="devinta.jpg" alt="korta"></img>
+<div class="thecard" data-framework="F">
+<div class="thefront" alt="korta">F</div>
+<div class="theback" alt="korta"></div>
 </div>
-<div class="thecard">
-<img class="thefront" src="vienuolikta.jpg" alt="sirdziuseptinke"></img>
-<img class="theback" src="devinta.jpg" alt="korta"></img>
+<div class="thecard" data-framework="D">
+<div class="thefront" alt="korta">D</div>
+<div class="theback" alt="korta"></div>
 </div>
 </section>
 
 
 <script>
 const cards = document.querySelectorAll('.thecard');
+let hasFlippedCard = false;
+let firstCard, secondCard;
 
-function flipCard(){
-this.classList.toggle('flip');
+function flipCard()
+{
+ this.classList.add('flip');
+ if(!hasFlippedCard){
+ //pirmas paspaudimas
+ hasFlippedCard = true;
+ firstCard = this;
+ }
+ else
+ {
+   hasFlippedCard = false;
+   secondCard = this;
+ 
+   if(firstCard.dataset.framework === secondCard.dataset.framework)
+   {
+   firstCard.removeEventListener('click',flipCard);
+   secondCard.removeEventListener('click',flipCard);
+   }else{
+    //jeigu nesutampa
+    setTimeout(() => {
+    firstCard.classList.remove('flip');
+    secondCard.classList.remove('flip');
+   },1000);
+  }
+ }
 }
 cards.forEach(card => card.addEventListener('click',flipCard));
 </script>
